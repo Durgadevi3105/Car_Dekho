@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Load the trained model
-with open('model.pkl', 'rb') as file:
+with gzip.open('model.pkl.gz', 'rb') as file:
     model = pickle.load(file)
 
 # Streamlit app
