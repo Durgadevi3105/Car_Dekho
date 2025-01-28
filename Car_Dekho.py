@@ -2,10 +2,26 @@ import streamlit as st
 import pickle
 import numpy as np
 import gzip
+import os
 
 # Load the trained model
-with gzip.open('model.pkl.gz', 'rb') as file:
-    model = pickle.load(file)
+file_path = 'model.pkl.gz'
+
+# Check if the file exists
+if not os.path.exists(file_path):
+    raise FileNotFoundError(f"The file {file_path} does not exist.")
+
+try:
+    # Open and load the compressed file
+    with gzip.open(file_path, 'rb') as file:
+        model = pickle.load(file)
+    print("Model loaded successfully!")
+except FileNotFoundError:
+    print(f"File not found: {file_path}")
+except pickle.UnpicklingError:
+    print("The file does not contain valid pickle data.")
+except Exception as e:
+    print(f"An error occurred while loading the model: {e}")
 
 # Streamlit app
 st.title("Car Resale Value Predictor")
