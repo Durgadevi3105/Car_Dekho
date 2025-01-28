@@ -1,9 +1,10 @@
 import streamlit as st
 import pickle
 import numpy as np
+import gzip
 
 # Load the trained model
-with gz.open('model.pkl.gz', 'rb') as file:
+with gzip.open('model.pkl.gz', 'rb') as file:
     model = pickle.load(file)
 
 # Streamlit app
