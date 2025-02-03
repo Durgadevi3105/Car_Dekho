@@ -4,8 +4,8 @@ import numpy as np
 
 
 # Load the trained model
-with open("/mount/src/car_dekho/model.pkl", 'rb') as file:
-    model = pickle.load(file)
+with open("C:\Users\HP\durga\model.pkl", 'rb') as file:
+    model = pickle.load(file
 
 # Streamlit app
 st.title("Car Resale Value Predictor")
