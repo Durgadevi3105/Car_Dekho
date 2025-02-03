@@ -4,7 +4,7 @@ import numpy as np
 
 
 # Load the trained model
-with open('D:\streamlit\env\Car_Dekho\model.pkl', 'rb') as file:
+with open('C:\Users\HP\Durga\model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Streamlit app
