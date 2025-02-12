@@ -7,13 +7,23 @@ import os
 import boto3
 
 
-
-s3 = boto3.client("s3")
-
 # AWS S3 Configuration
 BUCKET_NAME = "my-car-model-bucket"
 MODEL_FILE = "model.pkl"
 LOCAL_MODEL_PATH = "/mnt/data/model.pkl"
+EXCEL_FILE = "final_car_details.xlsx"
+
+AWS_ACCESS_KEY = "AKIA4SDNVSW6KCENG27V"
+AWS_SECRET_KEY = "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"
+AWS_REGION = "N/A"
+
+# Initialize Boto3 Client
+s3 = boto3.client(
+    "s3",
+    aws_access_key_id=AWS_ACCESS_KEY,
+    aws_secret_access_key=AWS_SECRET_KEY,
+    region_name=AWS_REGION
+)
 
 def download_model_from_s3():
     try:
