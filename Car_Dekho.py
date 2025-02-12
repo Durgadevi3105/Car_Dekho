@@ -5,7 +5,13 @@ import numpy as np
 import pickle
 import os
 import boto3
+session = boto3.Session(
+    aws_access_key_id="AKIA4SDNVSW6KCENG27V",
+    aws_secret_access_key="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",
+    region_name="ap-south-1"
+)
 
+s3 = session.client("s3")
 # AWS S3 Configuration
 BUCKET_NAME = "my-car-model-bucket"  # Change this to your S3 bucket name
 MODEL_FILE = "model.pkl"
