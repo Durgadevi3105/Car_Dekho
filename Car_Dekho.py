@@ -23,7 +23,7 @@ def set_image_local(image_path):
     )
 
 # Use the uploaded file path
-set_image_local("/mnt/data/car img.webp")
+set_image_local("/mnt/data/carimg.jpg")
 # Load the car dataset
 @st.cache_data
 def load_car_data():
