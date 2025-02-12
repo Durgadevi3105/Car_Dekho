@@ -6,7 +6,7 @@ import pickle
 import os
 import boto3
 
-!pip install boto3
+
 
 def set_image_local(image_path):
     with open(image_path, "rb") as file:
