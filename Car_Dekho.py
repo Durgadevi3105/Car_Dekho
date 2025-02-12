@@ -3,7 +3,26 @@ import pandas as pd
 import base64
 import numpy as np
 import pickle
+def set_image_local(image_path):
+    with open(image_path, "rb") as file:
+        img = file.read()
+    base64_image = base64.b64encode(img).decode("utf-8")
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("data:image/jpg;base64,{base64_image}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            #background-position: center;
+            #background-attachment: fixed;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
+set_image_local(r"img2.jpg")
 
 # Load the car dataset
 @st.cache_data
