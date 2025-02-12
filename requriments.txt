@@ -1,5 +1,9 @@
 streamlit
-pickle
+pandas
 numpy
-gzip
-os
+scikit-learn
+tensorflow
+wandb
+Docfile
+oc
+boto3
