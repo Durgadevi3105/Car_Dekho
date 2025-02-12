@@ -3,16 +3,20 @@ import pandas as pd
 import base64
 import numpy as np
 import pickle
-def set_image_local(image_path):
+import os
+
+image_path = "/mnt/data/carimg.jpg"
+
+if os.path.exists(image_path):
     with open(image_path, "rb") as file:
         img = file.read()
     base64_image = base64.b64encode(img).decode("utf-8")
-    
+
     st.markdown(
         f"""
         <style>
         .stApp {{
-            background-image: url("data:image/webp;base64,{base64_image}");
+            background-image: url("data:image/jpg;base64,{base64_image}");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -21,9 +25,8 @@ def set_image_local(image_path):
         """,
         unsafe_allow_html=True
     )
-
-# Use the uploaded file path
-set_image_local("/mnt/data/carimg.jpg")
+else:
+    st.error("Image file not found! Please check the file path.")
 # Load the car dataset
 @st.cache_data
 def load_car_data():
