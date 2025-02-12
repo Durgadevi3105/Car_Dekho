@@ -4,7 +4,7 @@ import base64
 import numpy as np
 import pickle
 def set_image_local(image_path):
-    with open(image_path, "rb") as file:
+    with open(car img.webp, "rb") as file:
         img = file.read()
     base64_image = base64.b64encode(img).decode("utf-8")
     st.markdown(
