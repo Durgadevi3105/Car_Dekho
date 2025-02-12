@@ -28,8 +28,7 @@ def set_image_local(image_path):
         unsafe_allow_html=True
     )
 
-# Use the newly uploaded file
-set_image_local("/mnt/data/carimg.jpg")
+
 
 # Use the newly uploaded file
 set_image_local("/mnt/data/carimg.jpg")
