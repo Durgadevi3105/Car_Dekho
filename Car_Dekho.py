@@ -46,8 +46,13 @@ else:
 # Load the car dataset
 @st.cache_data
 def load_car_data():
-    return pd.read_csv(r"car_dekho_final.csv")
+   file_path = "car_dekho_final.csv"
 
+    if not os.path.exists(file_path):
+        st.error(f"❌ '{file_path}' not found! Please upload it.")
+        return pd.DataFrame()  # Return empty DataFrame to prevent crashes
+
+    return pd.read_csv(file_path)  
 def get_car_details_by_brand(brand_name, df):
     df = df.dropna(subset=['oem'])
     filtered_cars = df[df['oem'].str.lower() == brand_name.lower()]
