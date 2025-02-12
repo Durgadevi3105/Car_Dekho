@@ -11,11 +11,11 @@ import boto3
 BUCKET_NAME = "my-car-model-bucket"
 MODEL_FILE = "model.pkl"
 LOCAL_MODEL_PATH = "/mnt/data/model.pkl"
-EXCEL_FILE = "final_car_details.xlsx"
+CSV_FILE = "car_dekho_final.csv"
 
 AWS_ACCESS_KEY = "AKIA4SDNVSW6KCENG27V"
 AWS_SECRET_KEY = "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"
-AWS_REGION = "N/A"
+AWS_REGION = "ap-south-1"
 
 # Initialize Boto3 Client
 s3 = boto3.client(
@@ -46,7 +46,7 @@ else:
 # Load the car dataset
 @st.cache_data
 def load_car_data():
-    return pd.read_excel(r"final_car_details.xlsx")
+    return pd.read_csv(r"car_dekho_final.csv")
 
 def get_car_details_by_brand(brand_name, df):
     df = df.dropna(subset=['oem'])
