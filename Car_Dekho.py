@@ -6,6 +6,27 @@ import pickle
 import os
 import boto3
 
+def set_image_local(image_path):
+    with open(image_path, "rb") as file:
+        img = file.read()
+    base64_image = base64.b64encode(img).decode("utf-8")
+    
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("data:image/jpg;base64,{base64_image}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+# Use the newly uploaded file
+set_image_local("/mnt/data/carimg.jpg")
 
 # AWS S3 Configuration
 BUCKET_NAME = "my-car-model-bucket"
