@@ -23,7 +23,7 @@ def set_image_local(image_path):
         unsafe_allow_html=True
     )
 
-set_image_local("C:\Users\HP\OneDrive\Pictures\carimg.jpg")
+set_image_local("carimg.jpg")
 # AWS S3 Configuration
 BUCKET_NAME = "my-car-model-bucket"
 MODEL_FILE = "model.pkl"
