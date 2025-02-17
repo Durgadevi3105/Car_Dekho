@@ -3,6 +3,7 @@ import pandas as pd
 import base64
 import numpy as np
 import pickle
+from sklearn.linear_model import LinearRegression
 
 def set_image_local(image_path):
     with open(image_path, "rb") as file:
