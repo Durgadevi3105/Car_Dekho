@@ -43,8 +43,9 @@ st.title("Car Resale Prediction & Chatbot 🚗")
 # Sidebar Navigation
 option = st.sidebar.selectbox("Choose a Feature", ["Predict Car Resale Value", "Chatbot"])
 if option == "Predict Car Resale Value":
-    with open('model.pkl', 'rb') as file:
-        model = pickle.load(file)
+    try:
+        with open('model.pkl', 'rb') as file:
+            model = pickle.load(file)
     except FileNotFoundError:
         st.error("The model file (model.pkl) was not found. Please check the file path.")
     except Exception as e:
