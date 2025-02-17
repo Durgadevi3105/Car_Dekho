@@ -24,7 +24,7 @@ def set_image_local(image_path):
         unsafe_allow_html=True
     )
 
-set_image_local("car.jpg")
+set_image_local("resale.jpg")
 
 
 # Load the car dataset
