@@ -24,52 +24,12 @@ def set_image_local(image_path):
     )
 
 set_image_local("car.jpg")
-# AWS S3 Configuration
-BUCKET_NAME = "my-car-model-bucket"
-MODEL_FILE = "model.pkl"
-LOCAL_MODEL_PATH = "/mnt/data/model.pkl"
-CSV_FILE = "car_dekho_final.csv"
 
-AWS_ACCESS_KEY = "AKIA4SDNVSW6KCENG27V"
-AWS_SECRET_KEY = "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"
-AWS_REGION = "ap-south-1"
-
-# Initialize Boto3 Client
-s3 = boto3.client(
-    "s3",
-    aws_access_key_id=AWS_ACCESS_KEY,
-    aws_secret_access_key=AWS_SECRET_KEY,
-    region_name=AWS_REGION
-)
-
-def download_model_from_s3():
-    try:
-        s3.download_file(BUCKET_NAME, MODEL_FILE, LOCAL_MODEL_PATH)
-        print("✅ Model downloaded successfully from S3.")
-    except Exception as e:
-        print(f"❌ Error downloading model: {e}")
-
-# Download model if not exists
-if not os.path.exists(LOCAL_MODEL_PATH): 
-    st.info("Downloading model from S3...")
-    download_model_from_s3()
-if os.path.exists(LOCAL_MODEL_PATH):
-    with open(LOCAL_MODEL_PATH, 'rb') as file:
-        model = pickle.load(file)
-    print("✅ Model loaded successfully!")
-else:
-    print("❌ Model file not found. Please check your S3 bucket.")
 
 # Load the car dataset
 @st.cache_data
 def load_car_data():
-   file_path = "car_dekho_final.csv"
-
-   if not os.path.exists(file_path):
-        st.error(f"❌ '{file_path}' not found! Please upload it.")
-        return pd.DataFrame()  # Return empty DataFrame to prevent crashes
-
-   return pd.read_csv(file_path)  
+   return pd.read_csv(r")
 def get_car_details_by_brand(brand_name, df):
     df = df.dropna(subset=['oem'])
     filtered_cars = df[df['oem'].str.lower() == brand_name.lower()]
@@ -83,7 +43,9 @@ st.title("Car Resale Prediction & Chatbot 🚗")
 # Sidebar Navigation
 option = st.sidebar.selectbox("Choose a Feature", ["Predict Car Resale Value", "Chatbot"])
 if option == "Predict Car Resale Value":
-    
+    with open('model.pkl', 'rb') as file:
+        model = pickle.load(file)
+
     st.markdown(
     """
     ## Welcome to the Car Resale Value Predictor! 🚗💰  
