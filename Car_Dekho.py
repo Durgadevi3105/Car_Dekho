@@ -3,7 +3,7 @@ import pandas as pd
 import base64
 import numpy as np
 import pickle
-import scikit-learn
+import sklearn
 def set_image_local(image_path):
     with open(image_path, "rb") as file:
         img = file.read()
