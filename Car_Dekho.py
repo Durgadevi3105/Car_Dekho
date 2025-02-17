@@ -3,7 +3,7 @@ import pandas as pd
 import base64
 import numpy as np
 import pickle
-from sklearn.linear_model import LinearRegression
+
 
 def set_image_local(image_path):
     with open(image_path, "rb") as file:
@@ -119,6 +119,11 @@ else:
     # Predict button
     if st.button("Predict Resale Value"):
             input_data = preprocess_input(input_features)
+        if model is not None:
+             prediction = model.predict(input_data)
+              print(f"Predicted resale value: ₹{prediction[0]:,.2f}")
+        else:
+            print("Error: Model is not loaded. Cannot make predictions.")
             prediction = model.predict(input_data)
             st.success(f"The predicted resale value of the car is: ₹{prediction[0]:,.2f}")
     
