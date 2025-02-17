@@ -29,7 +29,7 @@ set_image_local("car.jpg")
 # Load the car dataset
 @st.cache_data
 def load_car_data():
-   return pd.read_csv("/content/car_dheko_Final.csv")
+   return pd.read_csv("car_dheko_Final.csv")
 def get_car_details_by_brand(brand_name, df):
     df = df.dropna(subset=['oem'])
     filtered_cars = df[df['oem'].str.lower() == brand_name.lower()]
