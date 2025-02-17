@@ -121,7 +121,7 @@ else:
             prediction = model.predict(input_data)
             st.success(f"The predicted resale value of the car is: ₹{prediction[0]:,.2f}")
     
- elif option == "Chatbot":
+elif option == "Chatbot":
     st.header("Car Chatbot Assistant 💬")
     df = load_car_data()
             
