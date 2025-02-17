@@ -45,7 +45,11 @@ option = st.sidebar.selectbox("Choose a Feature", ["Predict Car Resale Value", "
 if option == "Predict Car Resale Value":
     with open('model.pkl', 'rb') as file:
         model = pickle.load(file)
-
+    except FileNotFoundError:
+        st.error("The model file (model.pkl) was not found. Please check the file path.")
+    except Exception as e:
+        st.error(f"An error occurred while loading the model: {e}")
+    else:
     st.markdown(
     """
     ## Welcome to the Car Resale Value Predictor! 🚗💰  
