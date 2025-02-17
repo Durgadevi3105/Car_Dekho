@@ -3,18 +3,11 @@ import pandas as pd
 import base64
 import numpy as np
 import pickle
-import os
-import boto3
 
-
-
-image_path = r"C:\Users\HP\Downloads\carimg.jpg"
-
-if os.path.exists(image_path):
+def set_image_local(image_path):
     with open(image_path, "rb") as file:
         img = file.read()
     base64_image = base64.b64encode(img).decode("utf-8")
-
     st.markdown(
         f"""
         <style>
@@ -22,17 +15,15 @@ if os.path.exists(image_path):
             background-image: url("data:image/jpg;base64,{base64_image}");
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center;
+            #background-position: center;
+            #background-attachment: fixed;
         }}
         </style>
         """,
         unsafe_allow_html=True
     )
-else:
-    st.error("Image file not found! Please check the file path.")
 
-
-
+set_image_local("C:\Users\HP\OneDrive\Pictures\carimg.jpg")
 # AWS S3 Configuration
 BUCKET_NAME = "my-car-model-bucket"
 MODEL_FILE = "model.pkl"
