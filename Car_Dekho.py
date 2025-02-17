@@ -8,8 +8,7 @@ import boto3
 
 
 
-
-image_path = "/mnt/data/carimg.jpg"
+image_path = r"C:\Users\HP\Downloads\carimg.jpg"
 
 if os.path.exists(image_path):
     with open(image_path, "rb") as file:
@@ -31,6 +30,7 @@ if os.path.exists(image_path):
     )
 else:
     st.error("Image file not found! Please check the file path.")
+
 
 
 # AWS S3 Configuration
