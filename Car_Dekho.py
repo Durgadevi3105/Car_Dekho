@@ -119,17 +119,12 @@ else:
     # Predict button
     if st.button("Predict Resale Value"):
             input_data = preprocess_input(input_features)
-        if model is not None:
-             prediction = model.predict(input_data)
-              print(f"Predicted resale value: ₹{prediction[0]:,.2f}")
-        else:
-            print("Error: Model is not loaded. Cannot make predictions.")
             prediction = model.predict(input_data)
             st.success(f"The predicted resale value of the car is: ₹{prediction[0]:,.2f}")
     
-    elif option == "Chatbot":
-         st.header("Car Chatbot Assistant 💬")
-         df = load_car_data()
+elif option == "Chatbot":
+     st.header("Car Chatbot Assistant 💬")
+     df = load_car_data()
             
     user_query = st.text_input("Ask me about cars!", "")
 
