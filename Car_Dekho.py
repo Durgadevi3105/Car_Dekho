@@ -126,7 +126,7 @@ else:
        st.header("Car Chatbot Assistant 💬")
        df = load_car_data()
             
-      user_query = st.text_input("Ask me about cars!", "")
+       user_query = st.text_input("Ask me about cars!", "")
 
     if user_query:
                 if "tell me about" in user_query.lower():
