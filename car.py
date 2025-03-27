@@ -6,7 +6,7 @@ import base64
 import re
 
 # Load the trained model
-with open(model.pkl, 'rb') as file:
+with open(car_model.pkl, 'rb') as file
     model = pickle.load(file)                             
 
 # Load the car dataset
